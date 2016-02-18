@@ -15,7 +15,7 @@ class polarSem:
         self.data = ""
         
     def read_file(self, fileName):
-        with open(fileName, 'r') as f
+        with open(fileName, 'r') as f:
             self.data = f.read()
        
     def read_string(self, string):
