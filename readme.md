@@ -10,9 +10,11 @@ maps positive and negative semantic values to words in a string or a text file.
 
 from polar_analyzer import PolarAnalyzer
 
-pa = PolarAnalyzer()\n
-pa.read_file("book.txt")\n
-semValues = pa.polar_values(positive_seeds = ["good", "order", "safe", "life"], negative_seeds = ["bad", "chaos", "danger", "death"])\n
+`pa = PolarAnalyzer()
+pa.read_file("book.txt")
+semValues = pa.polar_values(positive_seeds = ["good", "order", "safe", "life"], negative_seeds = ["bad", "chaos", "danger", "death"])`
+
+please make sure that positive_seeds and negative_seeds are semantically opposites.
 
 ## Contributing
 
