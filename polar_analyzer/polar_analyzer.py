@@ -8,7 +8,7 @@ from nltk.tokenize import RegexpTokenizer
 import re
 import statistics
 
-class polar_analyzer:
+class PolarAnalyzer:
     
     def __init__(self):
         self.values = list()
@@ -22,6 +22,7 @@ class polar_analyzer:
         self.data = string
         
     def polar_values(self, positive_seeds, negative_seeds):
+        self.values = []
         POS_tags = list(set(nltk.pos_tag(WordPunctTokenizer().tokenize(self.data))))
         words = []
         for (w, s) in POS_tags:
@@ -38,16 +39,17 @@ class polar_analyzer:
             for s in wordnet.synsets(nw):
                 negative_set.append(s)
 
+        positive_set = []
         for pw in positive_seeds:
             for s in wordnet.synsets(pw):
                 positive_set.append(s)
-        positive_set = tmp
+
         self.eval_words(words, positive_set, negative_set)
         return self.values
     
-    def eval_words(self, words, positive_set, negative_set):
+    def eval_words(self, words, positive_sets, negative_sets):
         for word in words:
-            if word == '0':
+            if word == '0' or word in self.stopWords:
                 self.values.append(0)
             else:
                 Original_word = word.split(".")[0]
@@ -73,7 +75,7 @@ class polar_analyzer:
                 score = max(score, sim)
         return score
     
-    def get_wordnet_pos(treebank_tag):
+    def get_wordnet_pos(self, treebank_tag):
         print(treebank_tag)
         if treebank_tag.startswith('J'):
             return wordnet.ADJ

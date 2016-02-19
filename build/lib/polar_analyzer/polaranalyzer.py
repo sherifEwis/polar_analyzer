@@ -8,7 +8,7 @@ from nltk.tokenize import RegexpTokenizer
 import re
 import statistics
 
-class polarSem:
+class polarAnalyzer:
     
     def __init__(self):
         self.values = list()
@@ -73,7 +73,7 @@ class polarSem:
                 score = max(score, sim)
         return score
     
-    def get_wordnet_pos(treebank_tag):
+    def get_wordnet_pos(self, treebank_tag):
         print(treebank_tag)
         if treebank_tag.startswith('J'):
             return wordnet.ADJ

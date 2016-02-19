@@ -1,1 +1,1 @@
-import polar_analyzer
+from polar_analyzer.polar_analyzer import PolarAnalyzer
