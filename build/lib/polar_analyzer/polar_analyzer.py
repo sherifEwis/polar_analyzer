@@ -22,6 +22,7 @@ class PolarAnalyzer:
         self.data = string
         
     def polar_values(self, positive_seeds, negative_seeds):
+        self.values = []
         POS_tags = list(set(nltk.pos_tag(WordPunctTokenizer().tokenize(self.data))))
         words = []
         for (w, s) in POS_tags:
@@ -48,7 +49,7 @@ class PolarAnalyzer:
     
     def eval_words(self, words, positive_sets, negative_sets):
         for word in words:
-            if word == '0':
+            if word == '0' or word in self.stopWords:
                 self.values.append(0)
             else:
                 Original_word = word.split(".")[0]
