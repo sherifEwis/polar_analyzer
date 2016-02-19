@@ -8,14 +8,14 @@ maps positive and negative semantic values to words in a string or a text file.
 
 ## Usage
 
-`
-from polar_analyzer import PolarAnalyzer
 
-pa = PolarAnalyzer()
+`from polar_analyzer import PolarAnalyzer`
 
-pa.read_file("book.txt")
+`pa = PolarAnalyzer()`
 
-semValues = pa.polar_values(positive_seeds = ["good", "order", "safe", "life"], negative_seeds = ["bad", "chaos", "danger", "death"])`
+`pa.read_file("book.txt")`
+
+`semValues = pa.polar_values(positive_seeds = ["good", "order", "safe", "life"], negative_seeds = ["bad", "chaos", "danger", "death"])`
 
 please make sure that positive_seeds and negative_seeds are semantically opposites.
 
